@@ -45,27 +45,19 @@ public class CheeseGpPlugin extends Plugin
 		for (MenuEntry entry : menuEntries) {
 			int ID = entry.getItemId();
 			MenuAction type = entry.getType();
+			int Identifier = entry.getIdentifier();
 
 
 			if (ID == 995){
 				entry.setTarget("<col=ffe608>" + config.snack() + "</col>");
 			}
-			if (type == GROUND_ITEM_THIRD_OPTION || type == GROUND_ITEM_SECOND_OPTION || type == GROUND_ITEM_FIRST_OPTION || type == GROUND_ITEM_FOURTH_OPTION || type == GROUND_ITEM_FIFTH_OPTION || type == EXAMINE_ITEM_GROUND){
+			if ((type == GROUND_ITEM_THIRD_OPTION || type == GROUND_ITEM_SECOND_OPTION || type == GROUND_ITEM_FIRST_OPTION || type == GROUND_ITEM_FOURTH_OPTION || type == GROUND_ITEM_FIFTH_OPTION || type == EXAMINE_ITEM_GROUND) && Identifier == 995){
 				entry.setTarget("<col=ffe608>" + config.snack());
 
 			}
 		}
 
 	}
-
-//	@Subscribe
-//	public void onGameStateChanged(GameStateChanged gameStateChanged)
-//	{
-//		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
-//		{
-//			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
-//		}
-//	}
 
 	@Provides
 	CheeseGpConfig provideConfig(ConfigManager configManager)
